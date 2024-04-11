@@ -11,6 +11,12 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+Additional `mix` commands can be found in `mix.exs`.
+
+## Testing
+
+To run tests use `mix test`.
+
 ## Endpoints
 
 Food truck endpoints include data for location and items served.
