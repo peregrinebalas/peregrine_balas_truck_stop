@@ -39,7 +39,7 @@ defmodule FoodTruckStopWeb.FoodTruckController do
   Search for food trucks with matching food items.
   """
   def search(conn, %{"query" => query}) do
-    # TODO update for name search as well
+    # TODO update for name search and multiple items
     food_items = "%#{query}%"
 
     # TODO separate query into context module
