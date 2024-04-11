@@ -4,6 +4,9 @@ FoodTruckStop is an API to find food trucks based in SF.
 
 ## Development
 
+Elixir: 1.16.0
+Phoenix: 1.7.11
+
 To start your Phoenix server:
 
 - Run `mix setup` to install and setup dependencies
