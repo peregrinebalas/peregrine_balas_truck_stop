@@ -1,0 +1,2 @@
+defmodule FoodTruckStopWeb.FoodTruckController do
+end

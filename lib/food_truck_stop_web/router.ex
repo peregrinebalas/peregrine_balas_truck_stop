@@ -21,9 +21,13 @@ defmodule FoodTruckStopWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", FoodTruckStopWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", FoodTruckStopWeb do
+    pipe_through :api
+
+    get "/food_trucks", FoodTruckController, :index
+    get "/food_trucks/:food_truck", FoodTruckController, :show
+    get "/food_trucks/search", FoodTruckController, :search
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:food_truck_stop, :dev_routes) do
