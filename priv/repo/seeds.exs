@@ -2,10 +2,14 @@
 #
 #     mix run priv/repo/seeds.exs
 #
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     FoodTruckStop.Repo.insert!(%FoodTruckStop.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+# The fixture for food truck data is read and each row decoded and parsed
+# before being seeded into the database as FoodTruck records.
+
+alias FoodTruckStop.DatabaseSeeder
+
+"../../fixtures/Mobile_Food_Facility_Permit.csv"
+|> Path.expand(__DIR__)
+|> File.stream!()
+|> CSV.decode(headers: true)
+|> Enum.map(fn {:ok, row} -> DatabaseSeeder.format_row(row) end)
+|> DatabaseSeeder.seed()

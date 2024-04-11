@@ -3,28 +3,14 @@ defmodule FoodTruckStop.FoodTruck do
   import Ecto.Changeset
 
   schema "food_trucks" do
-    field :block, :integer
-    field :status, :string
+    field :name, :string
     field :address, :string
-    field :permit, :string
-    field :approved, :naive_datetime
-    field :y, :float
-    field :x, :float
-    field :location_id, :integer
-    field :applicant, :string
     field :facility_type, :string
-    field :cnn, :integer
-    field :location_description, :string
-    field :blocklot, :integer
-    field :lot, :integer
     field :food_items, :string
     field :latitude, :float
     field :longitude, :float
-    field :schedule, :string
-    field :days_hours, :string
-    field :noi_sent, :naive_datetime
-    field :received, :integer
-    field :expiration_date, :naive_datetime
+    field :hours, :string
+    field :location_description, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -33,52 +19,20 @@ defmodule FoodTruckStop.FoodTruck do
   def changeset(food_truck, attrs) do
     food_truck
     |> cast(attrs, [
-      :location_id,
-      :applicant,
-      :facility_type,
-      :cnn,
-      :location_description,
+      :name,
       :address,
-      :blocklot,
-      :block,
-      :lot,
-      :permit,
-      :status,
+      :facility_type,
       :food_items,
-      :x,
-      :y,
       :latitude,
       :longitude,
-      :schedule,
-      :days_hours,
-      :noi_sent,
-      :approved,
-      :received,
-      :expiration_date
+      :hours,
+      :location_description
     ])
     |> validate_required([
-      :location_id,
-      :applicant,
-      :facility_type,
-      :cnn,
-      :location_description,
+      :name,
       :address,
-      :blocklot,
-      :block,
-      :lot,
-      :permit,
-      :status,
-      :food_items,
-      :x,
-      :y,
       :latitude,
-      :longitude,
-      :schedule,
-      :days_hours,
-      :noi_sent,
-      :approved,
-      :received,
-      :expiration_date
+      :longitude
     ])
   end
 end
